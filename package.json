@@ -1,0 +1,31 @@
+{
+  "name": "react-native-dash",
+  "version": "0.0.1",
+  "description": "A <Dash /> component for react-native to draw dashed or dotted lines",
+  "main": "Dash.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/obipawan/react-native-dash.git"
+  },
+  "keywords": [
+    "line",
+    "lines",
+    "react-native",
+    "react",
+    "dashes",
+    "dashed",
+    "dash",
+    "dotted",
+    "dashed-lines",
+    "dotted-lines"
+  ],
+  "author": "Pawan Kumar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/obipawan/react-native-dash/issues"
+  },
+  "homepage": "https://github.com/obipawan/react-native-dash#readme"
+}
