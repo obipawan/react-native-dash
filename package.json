@@ -27,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/obipawan/react-native-dash/issues"
   },
-  "homepage": "https://github.com/obipawan/react-native-dash#readme"
+  "homepage": "https://github.com/obipawan/react-native-dash#readme",
+  "dependencies": {
+    "react-native-measureme": "0.0.1"
+  }
 }
