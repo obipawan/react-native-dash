@@ -7,7 +7,7 @@
 
 import React from 'react';
 import {View} from 'react-native';
-import MeasureMeHOC from 'MeasureMeHOC';
+import MeasureMeHOC from 'react-native-measureme';
 
 const Dash = ({dashGap, dashLength, dashThickness, dashColor:backgroundColor, style = {}, ...props}) => {
   let length = props.width;
