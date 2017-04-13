@@ -16,6 +16,9 @@ const Dash = ({dashGap, dashLength, dashThickness, dashColor:backgroundColor, st
   let height = dashThickness;
   let marginRight = dashGap;
   let marginBottom = 0;
+  let borderRadius = rounded ? 100 : 0;
+  let overflow = rounded ? 'hidden' : 'visible';
+
   if (flexDirection === 'column'){
     length = props.height;
     width = dashThickness;
@@ -28,7 +31,7 @@ const Dash = ({dashGap, dashLength, dashThickness, dashColor:backgroundColor, st
   let dash = [];
   for (let i = 0; i < n; i++){
     dash.push(
-      <View key={i} style={{backgroundColor, width, height, marginRight, marginBottom}}/>
+      <View key={i} style={{backgroundColor, width, height, marginRight, marginBottom, borderRadius, overflow}}/>
     );
   }
   return (
@@ -43,14 +46,16 @@ Dash.propTypes = {
   dashGap: React.PropTypes.number.isRequired,
   dashLength: React.PropTypes.number.isRequired,
   dashThickness: React.PropTypes.number.isRequired,
-  dashColor: React.PropTypes.string
+  dashColor: React.PropTypes.string,
+  rounded: React.PropTypes.bool
 };
 
 Dash.defaultProps = {
   dashGap: 2,
   dashLength: 4,
   dashThickness: 2,
-  dashColor: 'black'
+  dashColor: 'black',
+  rounded: false
 }
 
 module.exports = MeasureMeHOC(Dash);
