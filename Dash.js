@@ -9,16 +9,13 @@ import React from 'react';
 import {View} from 'react-native';
 import MeasureMeHOC from 'react-native-measureme';
 
-const Dash = ({dashGap, dashLength, dashThickness, dashColor:backgroundColor, style = {}, ...props}) => {
+const Dash = ({dashGap, dashLength, dashThickness, dashStyle = {}, dashColor:backgroundColor, style = {}, ...props}) => {
   let length = props.width;
   let {flexDirection = 'row'} = style;
   let width = dashLength;
   let height = dashThickness;
   let marginRight = dashGap;
   let marginBottom = 0;
-  let borderRadius = rounded ? 100 : 0;
-  let overflow = rounded ? 'hidden' : 'visible';
-
   if (flexDirection === 'column'){
     length = props.height;
     width = dashThickness;
@@ -31,7 +28,7 @@ const Dash = ({dashGap, dashLength, dashThickness, dashColor:backgroundColor, st
   let dash = [];
   for (let i = 0; i < n; i++){
     dash.push(
-      <View key={i} style={{backgroundColor, width, height, marginRight, marginBottom, borderRadius, overflow}}/>
+      <View key={i} style={[dashStyle, {backgroundColor, width, height, marginRight, marginBottom}]}/>
     );
   }
   return (
@@ -47,7 +44,7 @@ Dash.propTypes = {
   dashLength: React.PropTypes.number.isRequired,
   dashThickness: React.PropTypes.number.isRequired,
   dashColor: React.PropTypes.string,
-  rounded: React.PropTypes.bool
+  dashStyle: View.propTypes.style
 };
 
 Dash.defaultProps = {
@@ -55,7 +52,6 @@ Dash.defaultProps = {
   dashLength: 4,
   dashThickness: 2,
   dashColor: 'black',
-  rounded: false
 }
 
 module.exports = MeasureMeHOC(Dash);
