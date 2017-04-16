@@ -9,7 +9,7 @@ import React from 'react';
 import {View} from 'react-native';
 import MeasureMeHOC from 'react-native-measureme';
 
-const Dash = ({dashGap, dashLength, dashThickness, dashColor:backgroundColor, style = {}, ...props}) => {
+const Dash = ({dashGap, dashLength, dashThickness, dashStyle = {}, dashColor:backgroundColor, style = {}, ...props}) => {
   let length = props.width;
   let {flexDirection = 'row'} = style;
   let width = dashLength;
@@ -28,7 +28,7 @@ const Dash = ({dashGap, dashLength, dashThickness, dashColor:backgroundColor, st
   let dash = [];
   for (let i = 0; i < n; i++){
     dash.push(
-      <View key={i} style={{backgroundColor, width, height, marginRight, marginBottom}}/>
+      <View key={i} style={[dashStyle, {backgroundColor, width, height, marginRight, marginBottom}]}/>
     );
   }
   return (
@@ -43,14 +43,15 @@ Dash.propTypes = {
   dashGap: React.PropTypes.number.isRequired,
   dashLength: React.PropTypes.number.isRequired,
   dashThickness: React.PropTypes.number.isRequired,
-  dashColor: React.PropTypes.string
+  dashColor: React.PropTypes.string,
+  dashStyle: View.propTypes.style
 };
 
 Dash.defaultProps = {
   dashGap: 2,
   dashLength: 4,
   dashThickness: 2,
-  dashColor: 'black'
+  dashColor: 'black',
 }
 
 module.exports = MeasureMeHOC(Dash);
