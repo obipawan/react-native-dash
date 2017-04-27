@@ -5,56 +5,45 @@
 */
 
 import React from 'react'
-import { View } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import MeasureMeHOC from 'react-native-measureme'
+import { getDashStyle, isStyleRow } from './util'
 
-const Dash = (
-	{
-		dashGap,
-		dashLength,
-		dashThickness,
-		dashStyle,
-		style = {},
-		...props,
-	}) => {
-	let length = props.width
-	let { flexDirection = 'row' } = style
-	let width = dashLength
-	let height = dashThickness
-	let marginRight = dashGap
-	let marginBottom = 0
-	if (flexDirection === 'column') {
-		length = props.height
-		width = dashThickness
-		height = dashLength
-		marginRight = 0
-		marginBottom = dashGap
-	}
-
-	let n = Math.ceil(length / (dashGap + dashLength))
+const Dash = (props) => {
+	const isRow = isStyleRow(props.style)
+	const length = isRow ? props.width : props.height
+	const n = Math.ceil(length / (props.dashGap + props.dashLength))
+    const calculatedDashStyles = getDashStyle(props)
 	let dash = []
 	for (let i = 0; i < n; i++) {
 		dash.push(
 			<View
 				key={ i }
 				style={ [
-					dashStyle,
-					{
-						width,
-						height,
-						marginRight,
-						marginBottom,
-					},
+					props.dashStyle,
+					calculatedDashStyles,
 				] }
 			/>
 		)
 	}
 	return (
-		<View style={ [ style, { flexDirection } ] }>
+		<View style={ [ props.style, isRow ? styles.dashRow : styles.dashColumn ] }>
 			{ dash }
 		</View>
 	)
 }
+
+const styles = StyleSheet.create({
+	dashDefault: {
+		backgroundColor: 'black',
+	},
+	dashRow: {
+		flexDirection: 'row',
+	},
+	dashColumn: {
+		flexDirection: 'column',
+	},
+})
 
 Dash.propTypes = {
 	style: View.propTypes.style,
@@ -69,7 +58,7 @@ Dash.defaultProps = {
 	dashGap: 2,
 	dashLength: 4,
 	dashThickness: 2,
-	dashStyle: { backgroundColor: 'black' }
+	dashStyle: styles.dashDefault,
 }
 
 module.exports = MeasureMeHOC(Dash)
