@@ -13,15 +13,15 @@ const Dash = (props) => {
 	const isRow = isStyleRow(props.style)
 	const length = isRow ? props.width : props.height
 	const n = Math.ceil(length / (props.dashGap + props.dashLength))
-    const calculatedDashStyles = getDashStyle(props)
+	const calculatedDashStyles = getDashStyle(props)
 	let dash = []
 	for (let i = 0; i < n; i++) {
 		dash.push(
 			<View
 				key={ i }
 				style={ [
-					props.dashStyle,
 					calculatedDashStyles,
+					props.dashStyle,
 				] }
 			/>
 		)
@@ -34,9 +34,6 @@ const Dash = (props) => {
 }
 
 const styles = StyleSheet.create({
-	dashDefault: {
-		backgroundColor: 'black',
-	},
 	dashRow: {
 		flexDirection: 'row',
 	},
@@ -58,7 +55,7 @@ Dash.defaultProps = {
 	dashGap: 2,
 	dashLength: 4,
 	dashThickness: 2,
-	dashStyle: styles.dashDefault,
+	dashColor: 'black',
 }
 
 module.exports = MeasureMeHOC(Dash)
