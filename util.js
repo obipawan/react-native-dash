@@ -5,17 +5,17 @@ export const isStyleRow = (style) => {
 	return flatStyle.flexDirection !== 'column'
 }
 
-const getDashStyleId = ({ dashGap, dashLength, dashThickness }, isRow) => {
-	return `${dashGap}-${dashLength}-${dashThickness}-${isRow ? 'row' : 'column'}`
-}
+const getDashStyleId = ({ dashGap, dashLength, dashThickness, dashColor }, isRow) =>
+	`${dashGap}-${dashLength}-${dashThickness}-${dashColor}-${isRow ? 'row' : 'column'}`
 
-const createDashStyleSheet = ({ dashGap, dashLength, dashThickness, style }, isRow) => {
+const createDashStyleSheet = ({ dashGap, dashLength, dashThickness, dashColor }, isRow) => {
 	const idStyle = new StyleSheet.create({
 		style: {
 			width: isRow ? dashLength : dashThickness,
 			height: isRow ? dashThickness : dashLength,
 			marginRight: isRow ? dashGap : 0,
 			marginBottom: isRow ? 0 : dashGap,
+			backgroundColor: dashColor,
 		},
 	})
 	return idStyle.style
