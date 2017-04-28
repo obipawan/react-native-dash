@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native'
 
 export const isStyleRow = (style) => {
-	const flatStyle = StyleSheet.flatten(style);
+	const flatStyle = StyleSheet.flatten(style || {})
 	return flatStyle.flexDirection !== 'column'
 }
 
