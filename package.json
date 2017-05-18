@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/obipawan/react-native-dash#readme",
   "dependencies": {
-    "react-native-measureme": "0.0.1"
+    "react-native-measureme": "0.0.1",
+    "prop-types": "^15.5.10"
   }
 }
