@@ -5,6 +5,7 @@
 */
 
 import React from 'react'
+import PropTypes from 'prop-types'
 import { View, StyleSheet } from 'react-native'
 import MeasureMeHOC from 'react-native-measureme'
 import { getDashStyle, isStyleRow } from './util'
@@ -44,10 +45,10 @@ const styles = StyleSheet.create({
 
 Dash.propTypes = {
 	style: View.propTypes.style,
-	dashGap: React.PropTypes.number.isRequired,
-	dashLength: React.PropTypes.number.isRequired,
-	dashThickness: React.PropTypes.number.isRequired,
-	dashColor: React.PropTypes.string,
+	dashGap: PropTypes.number.isRequired,
+	dashLength: PropTypes.number.isRequired,
+	dashThickness: PropTypes.number.isRequired,
+	dashColor: PropTypes.string,
 	dashStyle: View.propTypes.style,
 }
 
