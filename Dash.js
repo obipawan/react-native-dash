@@ -28,7 +28,7 @@ const Dash = (props) => {
 		)
 	}
 	return (
-		<View style={ [ props.style, isRow ? styles.dashRow : styles.dashColumn ] }>
+		<View onLayout={props.onLayout} style={ [ props.style, isRow ? styles.dashRow : styles.dashColumn ] }>
 			{ dash }
 		</View>
 	)
