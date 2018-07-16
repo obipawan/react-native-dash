@@ -21,7 +21,7 @@ const createDashStyleSheet = ({ dashGap, dashLength, dashThickness, dashColor },
 	return idStyle.style
 }
 
-const stylesStore = {}
+var stylesStore = {}
 export const getDashStyle = (props) => {
 	const isRow = isStyleRow(props.style)
 	const id = getDashStyleId(props, isRow)
