@@ -15,6 +15,7 @@ const Dash = (props) => {
 	const length = isRow ? props.width : props.height
 	const n = Math.ceil(length / (props.dashGap + props.dashLength))
 	const calculatedDashStyles = getDashStyle(props)
+	const dashRadius = props.dashRadius
 	let dash = []
 	for (let i = 0; i < n; i++) {
 		dash.push(
@@ -53,6 +54,7 @@ Dash.propTypes = {
 	dashThickness: PropTypes.number.isRequired,
 	dashColor: PropTypes.string,
 	dashStyle: ViewPropTypes.style,
+	dashRadius: PropTypes.number
 }
 
 Dash.defaultProps = {
@@ -60,6 +62,7 @@ Dash.defaultProps = {
 	dashLength: 4,
 	dashThickness: 2,
 	dashColor: 'black',
+	dashRadius: 0
 }
 
 module.exports = MeasureMeHOC(Dash)

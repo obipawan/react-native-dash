@@ -14,12 +14,13 @@ npm i --save react-native-dash
 | `style` | Dash container style  | [View.PropTypes.Style](https://facebook.github.io/react-native/docs/view.html#style) | `{flexDirection = 'row'}`
 | `dashGap` | Gap between two dashes | number | `2`
 | `dashLength` | Length of each dash | number | `4`
+| `dashRadius` | Radius of each dash | number | `0`
 | `dashThickness` | Thickness of each dash | number | `2`
 | `dashColor` | Color of each dash | string | `black`
 | `dashStyle` | Dashes style | [View.PropTypes.Style](https://facebook.github.io/react-native/docs/view.html#style) | {}
 
  - **ProTip 1**: Use `flexDirection` in style to get horizontal or vertical dashes. By default, it's `row`
- - **ProTip 2**: Use `{borderRadius: 100, overflow: 'hidden'}` in dashStyle to get rounded dotes instead of straight line dashes. 
+ - **ProTip 2**: Use `{borderRadius: 100, overflow: 'hidden'}` in dashStyle to get rounded dotes instead of straight line dashes.
 
 ## Usage
 ```javascript
