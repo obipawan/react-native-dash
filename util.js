@@ -17,7 +17,7 @@ const createDashStyleSheet = (
   { dashGap, dashLength, dashThickness, dashColor },
   isRow
 ) => {
-  const idStyle = new StyleSheet.create({
+  const idStyle = StyleSheet.create({
     style: {
       width: isRow ? dashLength : dashThickness,
       height: isRow ? dashThickness : dashLength,
