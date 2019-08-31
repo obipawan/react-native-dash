@@ -10,7 +10,7 @@ import { View, StyleSheet, ViewPropTypes } from 'react-native'
 import MeasureMeHOC from 'react-native-measureme'
 import { getDashStyle, isStyleRow } from './util'
 
-const Dash = (props) => {
+const Dash = props => {
 	const isRow = isStyleRow(props.style)
 	const length = isRow ? props.width : props.height
 	const n = Math.ceil(length / (props.dashGap + props.dashLength))
@@ -30,7 +30,7 @@ const Dash = (props) => {
 	return (
 		<View
 			onLayout={ props.onLayout }
-			style={ [ props.style, isRow ? styles.dashRow : styles.dashColumn ] }
+			style={ [ props.style, isRow ? styles.row : styles.column ] }
 		>
 			{ dash }
 		</View>
@@ -38,12 +38,8 @@ const Dash = (props) => {
 }
 
 const styles = StyleSheet.create({
-	dashRow: {
-		flexDirection: 'row',
-	},
-	dashColumn: {
-		flexDirection: 'column',
-	},
+	row: { flexDirection: 'row' },
+	column: { flexDirection: 'column' },
 })
 
 Dash.propTypes = {
@@ -62,4 +58,4 @@ Dash.defaultProps = {
 	dashColor: 'black',
 }
 
-module.exports = MeasureMeHOC(Dash)
+export default MeasureMeHOC(Dash)

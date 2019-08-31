@@ -1,21 +1,21 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
 export const isStyleRow = style => {
-  const flatStyle = StyleSheet.flatten(style || {});
-  return flatStyle.flexDirection !== 'column';
-};
+  const flatStyle = StyleSheet.flatten(style || {})
+  return flatStyle.flexDirection !== 'column'
+}
 
 const getDashStyleId = (
   { dashGap, dashLength, dashThickness, dashColor },
-  isRow
+  isRow,
 ) =>
   `${dashGap}-${dashLength}-${dashThickness}-${dashColor}-${
     isRow ? 'row' : 'column'
-  }`;
+  }`
 
 const createDashStyleSheet = (
   { dashGap, dashLength, dashThickness, dashColor },
-  isRow
+  isRow,
 ) => {
   const idStyle = StyleSheet.create({
     style: {
@@ -25,19 +25,19 @@ const createDashStyleSheet = (
       marginBottom: isRow ? 0 : dashGap,
       backgroundColor: dashColor,
     },
-  });
-  return idStyle.style;
-};
+  })
+  return idStyle.style
+}
 
-let stylesStore = {};
+let stylesStore = {}
 export const getDashStyle = props => {
-  const isRow = isStyleRow(props.style);
-  const id = getDashStyleId(props, isRow);
+  const isRow = isStyleRow(props.style)
+  const id = getDashStyleId(props, isRow)
   if (!stylesStore[id]) {
     stylesStore = {
       ...stylesStore,
       [id]: createDashStyleSheet(props, isRow),
-    };
+    }
   }
-  return stylesStore[id];
-};
+  return stylesStore[id]
+}
