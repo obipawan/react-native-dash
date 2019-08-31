@@ -18,7 +18,7 @@ var _reactNativeMeasureme = require('react-native-measureme');
 
 var _reactNativeMeasureme2 = _interopRequireDefault(_reactNativeMeasureme);
 
-var _util = require('./util');
+var _util = require('../util');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
