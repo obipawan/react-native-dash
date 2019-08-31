@@ -1,6 +1,6 @@
 {
   "name": "react-native-dash",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "A <Dash /> component for react-native to draw dashed or dotted lines",
   "main": "dist/index.js",
   "scripts": {
