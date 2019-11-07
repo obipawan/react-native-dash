@@ -6,9 +6,9 @@ import React from 'react';
 import { ViewStyle, StyleProp } from 'react-native';
 
 export interface DashProps {
-  dashGap: number;
-  dashLength: number;
-  dashThickness: number;
+  dashGap?: number;
+  dashLength?: number;
+  dashThickness?: number;
   style?: StyleProp<ViewStyle>;
   dashColor?: string;
   dashStyle?: StyleProp<ViewStyle>;
