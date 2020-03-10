@@ -15,6 +15,7 @@ npm i --save react-native-dash
 | `dashGap` | Gap between two dashes | number | `2`
 | `dashLength` | Length of each dash | number | `4`
 | `dashThickness` | Thickness of each dash | number | `2`
+| `dashCount` | The number of dashes to render | number | `undefined`
 | `dashColor` | Color of each dash | string | `black`
 | `dashStyle` | Dashes style | [View.PropTypes.Style](https://facebook.github.io/react-native/docs/view.html#style) | {}
 

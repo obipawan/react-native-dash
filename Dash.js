@@ -12,8 +12,13 @@ import { getDashStyle, isStyleRow } from '../util'
 
 const Dash = props => {
 	const isRow = isStyleRow(props.style)
-	const length = isRow ? props.width : props.height
-	const n = Math.ceil(length / (props.dashGap + props.dashLength))
+	let n;
+	if (props.dashCount == null) {
+		const length = isRow ? props.width : props.height
+		n = Math.ceil(length / (props.dashGap + props.dashLength))
+	} else {
+		n = props.dashCount
+	}
 	const calculatedDashStyles = getDashStyle(props)
 	let dash = []
 	for (let i = 0; i < n; i++) {
@@ -44,6 +49,7 @@ const styles = StyleSheet.create({
 
 Dash.propTypes = {
 	style: ViewPropTypes.style,
+	dashCount: PropTypes.number,
 	dashGap: PropTypes.number.isRequired,
 	dashLength: PropTypes.number.isRequired,
 	dashThickness: PropTypes.number.isRequired,
