@@ -25,13 +25,21 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Dash = function Dash(props) {
 	var isRow = (0, _util.isStyleRow)(props.style);
 	var length = isRow ? props.width : props.height;
-	var n = Math.ceil(length / (props.dashGap + props.dashLength));
+	var fullDashesCount = Math.floor(length / (props.dashGap + props.dashLength));
+	var lastDashSize = length - fullDashesCount * (props.dashGap + props.dashLength);
 	var calculatedDashStyles = (0, _util.getDashStyle)(props);
+	var calculatedLastDashStyle = (0, _util.getDashStyle)(props, lastDashSize);
 	var dash = [];
-	for (var i = 0; i < n; i++) {
+	for (var i = 0; i < fullDashesCount; i++) {
 		dash.push(_react2.default.createElement(_reactNative.View, {
 			key: i,
 			style: [calculatedDashStyles, props.dashStyle]
+		}));
+	}
+	if (lastDashSize > 0) {
+		dash.push(_react2.default.createElement(_reactNative.View, {
+			key: fullDashesCount,
+			style: [calculatedLastDashStyle, props.dashStyle]
 		}));
 	}
 	return _react2.default.createElement(
