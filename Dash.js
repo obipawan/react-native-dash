@@ -43,12 +43,16 @@ const styles = StyleSheet.create({
 })
 
 Dash.propTypes = {
-	style: ViewPropTypes.style,
+	style: PropTypes.shape({
+    style: PropTypes.any,
+  }),
 	dashGap: PropTypes.number.isRequired,
 	dashLength: PropTypes.number.isRequired,
 	dashThickness: PropTypes.number.isRequired,
 	dashColor: PropTypes.string,
-	dashStyle: ViewPropTypes.style,
+	dashStyle: PropTypes.shape({
+    style: PropTypes.any,
+  }),
 }
 
 Dash.defaultProps = {
