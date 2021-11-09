@@ -11,12 +11,12 @@ npm i --save react-native-dash
 ## Props
 | name | desc | type | default
 | --- | --- | --- | --- |
-| `style` | Dash container style  | [View.PropTypes.Style](https://facebook.github.io/react-native/docs/view.html#style) | `{flexDirection = 'row'}`
+| `style` | Dash container style  | ViewProps.shape({style: ViewProps.any}) | `{flexDirection = 'row'}`
 | `dashGap` | Gap between two dashes | number | `2`
 | `dashLength` | Length of each dash | number | `4`
 | `dashThickness` | Thickness of each dash | number | `2`
 | `dashColor` | Color of each dash | string | `black`
-| `dashStyle` | Dashes style | [View.PropTypes.Style](https://facebook.github.io/react-native/docs/view.html#style) | {}
+| `dashStyle` | Dashes style | ViewProps.shape({style: ViewProps.any}) | {}
 
  - **ProTip 1**: Use `flexDirection` in style to get horizontal or vertical dashes. By default, it's `row`
  - **ProTip 2**: Use `{borderRadius: 100, overflow: 'hidden'}` in dashStyle to get rounded dotes instead of straight line dashes. 
