@@ -1,11 +1,11 @@
 {
   "name": "react-native-dash",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "A <Dash /> component for react-native to draw dashed or dotted lines",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel --presets=es2015,react --plugins=transform-object-rest-spread Dash.js --out-file dist/index.js",
+    "build": "npx rollup -c",
     "prepare": "npm run build",
     "prepush": "npm run build",
     "precommit": "npm run build"
@@ -33,15 +33,19 @@
   },
   "homepage": "https://github.com/obipawan/react-native-dash#readme",
   "dependencies": {
-    "react-native-measureme": "0.0.2",
-    "prop-types": "^15.5.10"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "husky": "^3.0.4"
+    "@babel/cli": "^7.18.10",
+    "@babel/preset-env": "^7.19.0",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.18.6",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-node-resolve": "^14.0.0",
+    "@types/react": "^18.0.18",
+    "@types/react-native": "^0.69.8",
+    "husky": "^3.0.4",
+    "rollup": "^2.79.0",
+    "typescript": "^4.8.2"
   },
   "types": "index.d.ts"
 }

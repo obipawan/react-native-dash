@@ -2,16 +2,15 @@
 // Project: react-native-dash
 // Definitions by: alex-blair <https://github.com/alex-blair>
 
-import React from 'react';
-import { ViewStyle, StyleProp } from 'react-native';
-
-export interface DashProps {
-  dashGap: number;
-  dashLength: number;
-  dashThickness: number;
-  style?: StyleProp<ViewStyle>;
-  dashColor?: string;
-  dashStyle?: StyleProp<ViewStyle>;
+import { StyleProp, ViewStyle, LayoutChangeEvent } from 'react-native';
+interface Props {
+    style?: StyleProp<ViewStyle>;
+    dashGap: number;
+    dashLength: number;
+    dashThickness: number;
+    dashColor?: string;
+    dashStyle?: StyleProp<ViewStyle>;
+    onLayout?: ((event: LayoutChangeEvent) => void) | undefined;
 }
-
-export default class Dash extends React.Component<DashProps> {}
+const Dash: (props: Props) => JSX.Element;
+export default Dash;
