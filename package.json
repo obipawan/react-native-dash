@@ -33,8 +33,9 @@
   },
   "homepage": "https://github.com/obipawan/react-native-dash#readme",
   "dependencies": {
-    "react-native-measureme": "0.0.2",
-    "prop-types": "^15.5.10"
+    "deprecated-react-native-prop-types": "^2.3.0",
+    "prop-types": "^15.5.10",
+    "react-native-measureme": "0.0.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
